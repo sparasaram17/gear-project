@@ -41,7 +41,14 @@ npm run build
 
 # Preview production build locally
 npm run preview
+
+# Deploy to GitHub Pages (repo must be named gear-project)
+npm run deploy
 ```
+
+**Live site:** [https://Shash23.github.io/gear-project](https://Shash23.github.io/gear-project)
+
+To publish: rename the GitHub repo to `gear-project`, run `npm run deploy`, then in the repo **Settings → Pages** set **Source** to **Deploy from branch**, **Branch** to `gh-pages`, **Folder** to `/ (root)`.
 
 ## Project structure
 
