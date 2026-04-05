@@ -5,18 +5,20 @@ A web-based educational tool for calculating and visualizing mechanical gear rel
 ## Features
 
 - **Simulator** — Enter driving and driven gear tooth counts (8–120 teeth) to compute:
-  - Gear ratio
-  - Speed ratio
-  - Torque ratio
-  - Output speed (e.g., driven RPM when input is 1 RPM)
-- **Live visualization** — Animated meshing gears that rotate according to the calculated ratios. Supports two gears or a full gear train (add/remove gears).
-- **Terminology** — Definitions and explanations for gear ratio, speed ratio, torque, and pitch circle so you can interpret results and apply them to gear system design.
-- **Responsive, accessible UI** — React Bootstrap layout, keyboard-friendly forms, skip link, and WCAG-oriented contrast and labels.
+  - Gear ratio, speed ratio, torque ratio
+  - Driven RPM at your chosen **driving RPM** (gear 1), not only at 1 RPM
+- **Gear train analysis** — Table of each gear’s **teeth, signed RPM, and relative torque** along the train (ideal constant-power model)
+- **Design checks** — Educational warnings (low tooth count, extreme single-stage ratio) and optional **module** (mm) for **center distance** between adjacent meshing pairs
+- **Reverse calculator** — Enter a target tooth ratio; get suggested integer driver/driven pairs, with **Use for driver / driven** to apply
+- **PDF export** — **Download PDF report** bundles inputs, primary-pair calculations, train totals, per-gear analysis table, center distances (when module is set), and design-check notes
+- **Live visualization** — Animated meshing gears; supports two gears or a full gear train (add/remove gears)
+- **Terminology** — Definitions for gear ratio, speed ratio, torque, and pitch circle
+- **Responsive, accessible UI** — React Bootstrap layout, keyboard-friendly forms, skip link, and WCAG-oriented contrast and labels
 
 ## Tech stack
 
 - **React 18** + **Vite 5**
-- **React Router** (multi-page: Simulator, Terminology, About)
+- **React Router** (multi-page: Simulator, Terminology, About) with **HashRouter** for static hosting
 - **React Bootstrap** (layout, forms, cards, nav)
 - No backend — all calculation and animation run in the browser.
 
@@ -42,26 +44,28 @@ npm run build
 # Preview production build locally
 npm run preview
 
-# Deploy to GitHub Pages (repo must be named gear-project)
+# Deploy to GitHub Pages (Vite base must match repo name, e.g. /gear-project/)
 npm run deploy
 ```
 
 **Live site:** [https://Shash23.github.io/gear-project](https://Shash23.github.io/gear-project)
 
-To publish: rename the GitHub repo to `gear-project`, run `npm run deploy`, then in the repo **Settings → Pages** set **Source** to **Deploy from branch**, **Branch** to `gh-pages`, **Folder** to `/ (root)`.
+To publish: ensure `vite.config.js` has `base: '/<repo-name>/'`, run `npm run deploy`, then in the repo **Settings → Pages** set **Source** to **Deploy from branch**, **Branch** to `gh-pages`, **Folder** to `/ (root)`.
 
 ## Project structure
 
 ```
 src/
-  components/     # NavBar, GearInputForm, ResultsPanel, GearCanvas, etc.
-  context/        # GearStateContext (shared gear/input state)
+  components/     # NavBar, GearInputForm, SimulatorOptions, GearTrainTable, DesignWarnings, ReverseRatioPanel, ResultsPanel, GearCanvas, etc.
+  context/        # GearStateContext (gears, driving RPM, module)
   data/           # Education content (terminology copy)
-  lib/             # gearCalculations.js, gearGeometry.js
-  pages/           # CalculatorPage, LearnPage, AboutPage
+  lib/            # gearCalculations.js, gearGeometry.js, pdfExport.js
+  pages/          # CalculatorPage, LearnPage, AboutPage
   App.jsx
   main.jsx
   index.css
+public/
+  vite.svg        # Favicon
 ```
 
 ## Credits
@@ -70,3 +74,7 @@ src/
 - **Sri Parasaram** ([@sparasaram17](https://github.com/sparasaram17))
 
 CS571 Web Project 10.
+
+## Change history
+
+A detailed list of features and file-level notes is in [CHANGELOG.md](CHANGELOG.md).

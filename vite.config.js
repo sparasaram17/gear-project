@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Vercel deployment: app is served from the root, so base should be '/'
+// GitHub Pages project site: https://<user>.github.io/gear-project/
 export default defineConfig({
   plugins: [react()],
-  base: '/',
+  base: '/gear-project/',
 })
