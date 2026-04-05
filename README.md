@@ -47,14 +47,20 @@ npm run preview
 
 ### Publish to [sparasaram17.github.io/gear-project](https://sparasaram17.github.io/gear-project/)
 
-The course remote is `origin` (`CS571-S26/p10`). The **gear** remote points at [`sparasaram17/gear-project`](https://github.com/sparasaram17/gear-project) (GitHub Pages). After your work is committed on `main`:
+The course remote is `origin` (`CS571-S26/p10`). The **gear** remote points at [`sparasaram17/gear-project`](https://github.com/sparasaram17/gear-project) (GitHub Pages).
+
+After you **commit** your work on `main`, one command pushes both repos and updates the live site:
 
 ```bash
-git push gear main          # source
-npm run deploy:gear         # build + push dist/ to branch gh-pages on gear
+npm run ship
 ```
 
-`vite.config.js` uses `base: '/gear-project/'` for that URL. You need a GitHub identity with **push access** to `sparasaram17/gear-project`; if you see `403` / “denied to Shash23”, add your user as a collaborator on that repo or sign in with an account that has access (HTTPS credential or SSH).
+That runs `git push` to `origin` and `gear`, then builds and publishes `dist/` to the `gh-pages` branch on `gear`.
+
+- **`npm run push:all`** — only push both remotes (no build; use when you only changed non-frontend files or already deployed).
+- **`npm run deploy:gear`** — only build + publish to GitHub Pages (if code is already pushed).
+
+`vite.config.js` uses `base: '/gear-project/'` for that URL. You need **push access** to `sparasaram17/gear-project` (HTTPS or SSH credentials).
 
 ## Project structure
 
