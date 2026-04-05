@@ -1,6 +1,8 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { Link, useLocation } from 'react-router-dom'
 
+const REPO_URL = 'https://github.com/CS571-S26/p10'
+
 export default function NavBar() {
   const location = useLocation()
   const isActive = (path) => (location.pathname === path ? 'active' : '')
@@ -25,6 +27,14 @@ export default function NavBar() {
             </Nav.Link>
             <Nav.Link as={Link} to="/about" className={isActive('/about')} aria-current={location.pathname === '/about' ? 'page' : undefined}>
               About
+            </Nav.Link>
+            <Nav.Link
+              href={REPO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View source code on GitHub (opens in new tab)"
+            >
+              GitHub
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
