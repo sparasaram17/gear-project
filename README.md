@@ -43,14 +43,7 @@ npm run build
 
 # Preview production build locally
 npm run preview
-
-# Deploy to GitHub Pages (Vite base must match repo name, e.g. /gear-project/)
-npm run deploy
 ```
-
-**Live site:** [https://Shash23.github.io/gear-project](https://Shash23.github.io/gear-project)
-
-To publish: ensure `vite.config.js` has `base: '/<repo-name>/'`, run `npm run deploy`, then in the repo **Settings → Pages** set **Source** to **Deploy from branch**, **Branch** to `gh-pages`, **Folder** to `/ (root)`.
 
 ## Project structure
 
