@@ -4,6 +4,12 @@
 
 Web-based educational tool for introductory engineering students to model, visualize, and compare gear setups.
 
+## Quick Links
+
+- [Live Website](https://sparasaram17.github.io/gear-project/)
+- [Change History](CHANGELOG.md)
+- [Project Description](project_description.md)
+
 ## What This Project Includes
 
 - **Task-based pages:** `Simulator`, `Analyze`, `Compare`, `Learn`, and `About`.
@@ -77,7 +83,9 @@ public/
 
 CS571 Web Project 10
 
-## Additional Notes
+## Accessibility Notes
 
-- Change history: [CHANGELOG.md](CHANGELOG.md)
-- Original project proposal/context: [project_description.md](project_description.md)
+- Keyboard-friendly forms and controls
+- Skip-to-content link
+- Labeled inputs with helper descriptions
+- Contrast-oriented styling updates for WCAG AA readability goals
